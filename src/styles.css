@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+	padding: 0;
+    margin: 0;
+    background: #888;
+}
+#tabs-wrap, main {
+    margin: 1em auto;
+    padding: 1em;
+    background: #fff;
+    max-width: 900px;
+    border-radius: 2px;
+}
+#tabs-wrap {
+    margin-bottom: 0;
+    padding: 1em;
+}
+main {
+    margin-top: 0;
+    padding: 1em;
+}
