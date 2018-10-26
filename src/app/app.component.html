@@ -1,20 +1,65 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<header id="tabs-wrap">
+  <ul class="tabs" >
+    <li><a href="#" class="all active">All</a></li>
+    <li><a href="#" class="red">Red</a></li>
+    <li><a href="#" class="green">Green</a></li>
+    <li><a href="#" class="blue">Blue</a></li>
+  </ul>
+</header>
 
+<main>
+    <section id="container">
+      <article class="todo-form">
+          <form #todoForm="ngForm" (ngSubmit)="todoForm.form.valid && addTodo(todoForm.value)" novalidate>
+          <!-- <form #todoForm="ngForm" (submit)="todoSubmit(todoForm.value); todoForm.resetForm()" > -->
+              <!-- {{ todoForm.value | json }}
+              {{ todoModel | json }} -->
+              <div class="form-group">
+
+                <div class="input-group">
+                  <label for="">Todo</label>
+                  <input type="text" required #todo class="form-control"  placeholder="Add Todo" #name="ngModel" name="todo" [(ngModel)]="todoModel.todo" >
+                  <!-- <div [class.invalid-field]="todo.error?.required">This field is required</div> -->                 
+                </div>
+
+                <div class="input-group">
+                    <label for="">Red</label>
+                    <input type="radio" #red class="form-control" value="red" name="priority" [(ngModel)]="todoModel.priority">
+
+                    <label for="">Green</label>
+                    <input type="radio" #green class="form-control" value="green" name="priority" [(ngModel)]="todoModel.priority">
+
+                    <label for="">Blue</label>
+                    <input type="radio" #blue class="form-control" value="blue" name="priority" [(ngModel)]="todoModel.priority">
+                </div>
+                <!-- <div class="input-group">
+                  <label for="">Todo</label>
+                  <input type="text" #todo  class="form-control" placeholder="Add Todo" name="todo" ngModel>
+                </div> -->
+
+                <!-- <div class="input-group">
+                  <label formArrayName="orders" *ngFor="let order of todoForm.controls.orders.controls; let i = index">
+                    <input type="checkbox" [formControlName]="i">
+                    {{orders[i].name}}
+                  </label>
+                </div> -->
+                <button [disabled]="todoForm.form.invalid" class="input-group-text">Add</button>
+                <!-- <button [disabled]="todoForm.form.invalid" class="input-group-text" (click)="addTodo(todo.value)">Add</button> -->
+              </div>
+              <!-- <div class="data">
+                <ul class="list-unstyled">
+                  <li [@moveInLeft]  *ngFor="let todo of todoArray">{{todo}} <i (click)="deleteItem(todo)" class="material-icons">delete</i></li>
+                </ul>
+            </div> -->
+          </form>
+      </article>
+      <section class="todo-list-wrap" id="todo-list-wrap" *ngFor="let t of todoArray  ">
+        <article class="todo-list">
+          <h2>title {{t.todo}}</h2>
+          <p>color {{ t.priority }}</p>
+        </article>
+
+      </section>
+    </section>
+</main>
