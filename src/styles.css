@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+/*Google fonts*/
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 body{
 	padding: 0;
     margin: 0;
@@ -18,4 +20,11 @@ body{
 main {
     margin-top: 0;
     padding: 1em;
+}
+@media (max-width:570px){
+    .todo-form, .todo-list-wrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
 }

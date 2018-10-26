@@ -1,65 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <header id="tabs-wrap">
-  <ul class="tabs" >
-    <li><a href="#" class="all active">All</a></li>
-    <li><a href="#" class="red">Red</a></li>
-    <li><a href="#" class="green">Green</a></li>
-    <li><a href="#" class="blue">Blue</a></li>
-  </ul>
+  <todo-tabs></todo-tabs>
 </header>
 
 <main>
     <section id="container">
       <article class="todo-form">
-          <form #todoForm="ngForm" (ngSubmit)="todoForm.form.valid && addTodo(todoForm.value)" novalidate>
-          <!-- <form #todoForm="ngForm" (submit)="todoSubmit(todoForm.value); todoForm.resetForm()" > -->
-              <!-- {{ todoForm.value | json }}
-              {{ todoModel | json }} -->
-              <div class="form-group">
-
-                <div class="input-group">
-                  <label for="">Todo</label>
-                  <input type="text" required #todo class="form-control"  placeholder="Add Todo" #name="ngModel" name="todo" [(ngModel)]="todoModel.todo" >
-                  <!-- <div [class.invalid-field]="todo.error?.required">This field is required</div> -->                 
-                </div>
-
-                <div class="input-group">
-                    <label for="">Red</label>
-                    <input type="radio" #red class="form-control" value="red" name="priority" [(ngModel)]="todoModel.priority">
-
-                    <label for="">Green</label>
-                    <input type="radio" #green class="form-control" value="green" name="priority" [(ngModel)]="todoModel.priority">
-
-                    <label for="">Blue</label>
-                    <input type="radio" #blue class="form-control" value="blue" name="priority" [(ngModel)]="todoModel.priority">
-                </div>
-                <!-- <div class="input-group">
-                  <label for="">Todo</label>
-                  <input type="text" #todo  class="form-control" placeholder="Add Todo" name="todo" ngModel>
-                </div> -->
-
-                <!-- <div class="input-group">
-                  <label formArrayName="orders" *ngFor="let order of todoForm.controls.orders.controls; let i = index">
-                    <input type="checkbox" [formControlName]="i">
-                    {{orders[i].name}}
-                  </label>
-                </div> -->
-                <button [disabled]="todoForm.form.invalid" class="input-group-text">Add</button>
-                <!-- <button [disabled]="todoForm.form.invalid" class="input-group-text" (click)="addTodo(todo.value)">Add</button> -->
-              </div>
-              <!-- <div class="data">
-                <ul class="list-unstyled">
-                  <li [@moveInLeft]  *ngFor="let todo of todoArray">{{todo}} <i (click)="deleteItem(todo)" class="material-icons">delete</i></li>
-                </ul>
-            </div> -->
-          </form>
+          <todo-form></todo-form>          
       </article>
-      <section class="todo-list-wrap" id="todo-list-wrap" *ngFor="let t of todoArray  ">
-        <article class="todo-list">
-          <h2>title {{t.todo}}</h2>
-          <p>color {{ t.priority }}</p>
-        </article>
-
-      </section>
+      <section class="todo-list-wrap" id="todo-list-wrap" >
+        <todo-list></todo-list>
+      </section>      
     </section>
 </main>

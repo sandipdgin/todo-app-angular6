@@ -1,97 +1,12 @@
-/*Google fonts*/
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-
-
-.tabs{
-    display:flex;
-    justify-content:space-evenly;
-    flex-direction: row;
-    list-style: none;
-    
-}
-
-.tabs > li > a{
-    display: block;
-    padding: 0.5em 1em;
-    border: 1px solid #666;
-    border-radius: 6px;
-    text-decoration: none;
-    color: #333;
-    flex: 1;
-    align-content: stretch;
-}
-.tabs > li > a.red{     color: red; }
-.tabs > li > a.blue{     color: blue; }
-.tabs > li > a.green{     color: green; }
-
-.tabs > li > a.active{
-    background-color: darkblue;
-    color: #fff;
-}
-.todo-form, .todo-list-wrap {
-    border: 1px solid #888;
-    border-radius: 6px;
+#container{
     display: inline-flex;
     flex-direction: row;
     justify-content: flex-start;
 }
 
-form{
-	max-width: 30em;
-	margin: 1em auto;
-	position: relative;
-    background: #f4f4f4;
-    padding: 1em;
-    overflow: hidden;
-    
-}
-form h1{
-    font-family: "Raleway";
-    color:rgb(94, 94, 94); 
-}
-form input[type=text]::placeholder{
-   font-family: "Raleway";
-   color:#666; 
-}
-form .data{
-    margin-top: 1em;
-}
-form .data li{
- background: #fff;
- border-left: 4px solid rgb(94, 94, 94);
- padding: 1em;
- margin: 1em auto;
- color: #666;
- font-family: "Raleway";
-}
-form .data li i{
-    float: right;
-    color: #888;
-    cursor: pointer;
-}
-form .input-group-text{
-    background: rgb(94, 94, 94);
+.todo-form {
+    border: 1px solid #888;
     border-radius: 6px;
-    width: 5em;
-    height: 5em;
-    padding: 1em;
-    color: #fff;
-    cursor: pointer;
-}
-form .input-group-text i{
-    font-size: 2em;
-}
-form .form-control{
-	height: 3em;
-    font-family: "Raleway";
-}
-form .form-control:focus{
-	box-shadow: 0;
-}
-@media (max-width:570px){
-    .todo-form, .todo-list-wrap {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
+    order:0;
+    background: #f4f4f4;
 }
