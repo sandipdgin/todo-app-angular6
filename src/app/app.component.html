@@ -1,15 +1,25 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <header id="tabs-wrap">
-  <todo-tabs></todo-tabs>
+  <ul class="tabs" >
+    <li><a (click)="getTasksList('all')"  class="all active">All</a></li>
+    <li><a (click)="getTasksList('red')" class="red">Red</a></li>
+    <li><a (click)="getTasksList('green')" class="green">Green</a></li>
+    <li><a (click)="getTasksList('blue')" class="blue">Blue</a></li>
+  </ul>
 </header>
+
 
 <main>
     <section id="container">
       <article class="todo-form">
           <todo-form></todo-form>          
       </article>
-      <section class="todo-list-wrap" id="todo-list-wrap" >
-        <todo-list></todo-list>
-      </section>      
+      <article (click)="onSelect(t)" class="todo-list" *ngFor="let t of todoArray$">
+        <h2>{{t.todo | titlecase }}</h2>
+        <p><span class="priority-color" [ngStyle]="{ 'background-color': t.priority }"></span> {{ t.priority | titlecase }}</p>
+      </article>
+      <div class="clearFloat"></div>
     </section>
 </main>
+
+<router-outlet></router-outlet>

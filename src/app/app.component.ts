@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TodoServiceService } from './todo-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +9,24 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor(){  }
-  
+  todoArray$ = [];
+  filterTodoArray$ = [];
+
+  constructor(private todoService:TodoServiceService, private router: Router) { 
+    this.todoArray$ = this.todoService.getAllTasks();
+  }
+
+  onSelect(task){
+    this.router.navigate(['/task', task.id]);
+  }
+  getTasksList(x){
+    if( x != "all" ){
+      this.todoArray$ = this.todoService.filterRedTasks(x);
+    } else {
+      this.todoArray$ = this.todoService.getAllTasks();
+    }
+    return this.todoArray$;    
+  }
   //todoForm: new FormGroup()
   /* addTodo(value){
     if(value!==""){
