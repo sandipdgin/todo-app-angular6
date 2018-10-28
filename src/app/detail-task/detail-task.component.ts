@@ -9,7 +9,7 @@ import { TodoServiceService } from '../todo-service.service';
 })
 export class DetailTaskComponent implements OnInit {
   public taskId;
-  private _currentTask;
+  public _currentTask;
   todoArray$ = [];
 
   //@Output('hideTabs') hidetabs = new EventEmitter<boolean>();
