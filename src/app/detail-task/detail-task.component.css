@@ -1,0 +1,10 @@
+.todo-list{
+    margin:10px;
+    padding: 10px;
+    border-radius: 6px;
+    float: left;
+}
+.todo-list:last-child::after, .clearFloat{
+    clear: both;
+}
+.priority-color{ border-radius: 50%; width: 1em; height: 1em; display: inline-block; }

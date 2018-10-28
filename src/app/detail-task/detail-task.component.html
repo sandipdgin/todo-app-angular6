@@ -1,3 +1,10 @@
-<p>
-  detail-task works!
-</p>
+<main>
+  <section id="container">
+    <article class="todo-list">
+      <h2>{{ _currentTask.todo | titlecase  }}</h2>
+      <p><span class="priority-color" [ngStyle]="{ 'background-color': _currentTask.priority }"></span> {{ _currentTask.priority | titlecase }}</p>
+    </article>
+    <div class="clearFloat"></div>
+    <a routerLink="/home" class="todo-btn">Go to Previouse</a>
+  </section>
+</main>

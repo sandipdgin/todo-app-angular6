@@ -1,0 +1,4 @@
+<article (click)="onSelect(t)" class="todo-list" *ngFor="let t of todoArray$">
+  <h2>{{t.todo | titlecase }}</h2>
+  <p><span class="priority-color" [ngStyle]="{ 'background-color': t.priority }"></span> {{ t.priority | titlecase }}</p>
+</article>

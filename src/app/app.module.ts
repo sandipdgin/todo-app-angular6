@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { TodoTabsComponent } from './todo-tabs/todo-tabs.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import { DetailTaskComponent } from './detail-task/detail-task.component';
+import { HomeComponent } from './home/home.component';
+import { FilterTaskComponent } from './filter-task/filter-task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoTabsComponent,
     TodoFormComponent,
-    DetailTaskComponent
+    DetailTaskComponent,
+    HomeComponent,
+    FilterTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -21,8 +25,16 @@ import { DetailTaskComponent } from './detail-task/detail-task.component';
     RouterModule.forRoot([
       {
         path: '',
-        redirectTo: '/',
+        redirectTo: 'home',
         pathMatch: 'full'
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: ':priority',
+        component: FilterTaskComponent
       },
       {
         path: 'task/:id',

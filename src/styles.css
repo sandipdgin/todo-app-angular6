@@ -1,6 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
-/*Google fonts*/
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+
 body{
 	padding: 0;
     margin: 0;
@@ -12,19 +11,33 @@ body{
     background: #fff;
     max-width: 900px;
     border-radius: 2px;
+    font-family: "Raleway";
 }
 #tabs-wrap {
     margin-bottom: 0;
     padding: 1em;
 }
-main {
-    margin-top: 0;
-    padding: 1em;
+main {  margin-top: 0; }
+
+.clearFloat { clear: both; }
+
+.todo-btn {
+    padding: 0.5em 1.2em;
+    background: #7abcff; 
+    background: -moz-linear-gradient(top, #7abcff 0%, #60abf8 44%, #4096ee 100%); 
+    background: -webkit-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); 
+    background: linear-gradient(to bottom, #7abcff 0%,#60abf8 44%,#4096ee 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=0 );
+    font-size: 1.1em; 
+    color: #fff;
+    border: 1px solid #7abcff;
+    border-radius: 4px;
+    outline: none;
+    text-decoration: none;
 }
-@media (max-width:570px){
-    .todo-form, .todo-list-wrap {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
+.todo-btn:hover { background: #999;  }
+
+@media (max-width:540px){
+
+
 }

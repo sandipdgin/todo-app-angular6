@@ -1,5 +1,6 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { TodoServiceService } from '../todo-service.service';
 
 @Component({
   selector: 'app-detail-task',
@@ -8,11 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailTaskComponent implements OnInit {
   public taskId;
-  constructor(private route: ActivatedRoute) { }
+  private _currentTask;
+  todoArray$ = [];
 
-  ngOnInit() {
-    let id = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.taskId = id;
+  //@Output('hideTabs') hidetabs = new EventEmitter<boolean>();
+
+  constructor(private todoService:TodoServiceService, private route: ActivatedRoute) { 
+    this.todoArray$ = this.todoService.filterTasks(null);
+    //this.hidetabs.emit(false);
+  }
+
+  ngOnInit() {    
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      let id = parseInt(params.get('id'));
+      this.taskId = id;
+      console.log("current task 1", id);
+    })
+    this._currentTask = this.todoArray$.find(obj => obj.id == this.taskId );
+    console.log("current task", this._currentTask);
   }
 
 }

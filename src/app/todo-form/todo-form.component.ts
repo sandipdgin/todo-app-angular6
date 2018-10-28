@@ -25,20 +25,7 @@ export class TodoFormComponent implements OnInit {
 
   addTodo(f){
     console.log(f, f.value);
-    (f.value.taskTitle !== "" && f.value.priority !== "") ? this.todoService.addTodo(f.value.taskTitle, f.value.priority) : console.log("error occure");
-
-
-    /* if(f.value.taskTitle !== "" && f.value.priority !== ""){
-      console.log("no error");
-    } else {
-      console.log("error occure");
-    } */
-
-    /* if(value.todo !== "" || value.todo !== undefined) {
-      this.todoService.addTodo(value.todo, value.priority);
-    } else {
-      alert("The field is required.")
-    } */
+    (f.value.taskTitle !== "" && f.value.priority !== "") ? this.todoService.addTodo(f.value.taskTitle, f.value.priority) : console.log("This is not valid data.");
   }
 
   trackPriority(index, pColor){
